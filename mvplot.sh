@@ -6,10 +6,10 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 Written by Levine <levinegurgelf@gmail.com>"
 
-partition1="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition1/";
-partition2="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition2/";
-partition3="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition3/";
-log="$HOME/Desktop/Trabalho/EcoHack/mvplot/mvplot.log";
+partition1="$HOME/mvplot/partition1/";
+partition2="$HOME/mvplot/partition2/";
+partition3="$HOME/mvplot/partition3/";
+log="$HOME/mvplot/mvplot.log";
 fileType="plot"
 
 file1="$(basename $partition1/*.$fileType)"
@@ -37,15 +37,15 @@ if [ -f $filePartition1 ]; then
 
 fi
 
-file2="$(basename $partition2/*.$fileType)"
+file2="$(basename $partition2*.$fileType)"
 filePartition2=$partition2$file2
 
 if [ -f $filePartition2 ]; then
  md5FilePartition2=$(md5sum $filePartition2 | cut -d " " -f1) 
  cp $filePartition2 $partition3
- echo "$(date +%Y%m%d%H%M%S) copiando o arquivo $file2 (hash: $md5FilePartition2) para a partição $partition3" >> $log
+ echo "$(date +%Y%m%d%H%M%S) copiando o arquivo $filePartition2 (hash: $md5FilePartition2) para a partição $partition3" >> $log
 
- filePartition3=$partition3/*.plot
+ filePartition3=$partition3$file2
  md5FilePartition3=$(md5sum $filePartition3 | cut -d " " -f1)
 
  while [ $md5FilePartition2 != $md5FilePartition3 ]

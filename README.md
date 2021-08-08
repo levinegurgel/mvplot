@@ -20,11 +20,11 @@ Atribuir permissão de execução para o arquivo
 
 ## Usage
 para rodar apenas uma vez o script
-...sh
+```sh
   ./mvplot.sh
-...
+```
 
 para deixar rodando execute (sendo -n a frequência em segundos que o arquivo será executado)
-...sh
- watch -n 10 ./mvplot.sh
-...
+```sh
+  watch -n 10 ./mvplot.sh
+```

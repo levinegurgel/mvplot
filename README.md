@@ -5,9 +5,9 @@ Informe as partições 1, 2 e 3 no cabeçalho do script.
 
 partition1="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition1/";
 
-partition2="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition2/";
+partition2="/media/usuario/partition2/";
 
-partition3="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition3/";
+partition3="/media/usuario/partition3/";
 
 informe o diretório para registrar o log
 log="$HOME/Desktop/Trabalho/EcoHack/mvplot/mvplot.log";

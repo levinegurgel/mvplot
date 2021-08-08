@@ -6,11 +6,12 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 Written by Levine <levinegurgelf@gmail.com>"
 
-partition1="$HOME/Desktop/Trabalho/EcoHack/mineradora/partition1/";
-partition2="$HOME/Desktop/Trabalho/EcoHack/mineradora/partition2/";
-partition3="$HOME/Desktop/Trabalho/EcoHack/mineradora/partition3/";
-log="$HOME/Desktop/Trabalho/EcoHack/mineradora/mvplot.log";
+partition1="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition1/";
+partition2="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition2/";
+partition3="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition3/";
+log="$HOME/Desktop/Trabalho/EcoHack/mvplot/mvplot.log";
 fileType="plot"
+
 file1="$(basename $partition1/*.$fileType)"
 filePartition1=$partition1$file1
 

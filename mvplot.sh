@@ -12,7 +12,7 @@ partition3="$HOME/mvplot/partition3/";
 log="$HOME/mvplot/mvplot.log";
 fileType="plot"
 
-file1="$(basename $partition1/*.$fileType)"
+file1="$(basename $partition1*.$fileType)"
 filePartition1=$partition1$file1
 
 

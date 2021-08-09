@@ -21,7 +21,7 @@ if [ -f $filePartition1 ]; then
  cp $filePartition1 $partition2
  echo "$(date +%Y%m%d%H%M%S) copiando o arquivo $filePartition1 (hash: $md5FilePartition1) para a partição $partition2" >> $log
 
- filePartition2=$partition2/*.plot
+ filePartition2=$partition2$file1
  md5FilePartition2=$(md5sum $filePartition2 | cut -d " " -f1)
 
  while [ $md5FilePartition1 != $md5FilePartition2 ]

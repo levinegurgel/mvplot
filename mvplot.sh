@@ -12,50 +12,13 @@ partition3="$HOME/Desktop/Trabalho/EcoHack/mvplot/partition3/";
 log="$HOME/Desktop/Trabalho/EcoHack/mvplot/mvplot.log";
 fileType="plot"
 
-file1="$(basename $partition1/*.$fileType)"
-filePartition1=$partition1$file1
+file="$(basename $partition1/*.$fileType)"
+filePartition1=$partition1$file
 
 
 if [ -f $filePartition1 ]; then
- md5FilePartition1=$(md5sum $filePartition1 | cut -d " " -f1) 
- cp $filePartition1 $partition2
- echo "$(date +%Y%m%d%H%M%S) copiando o arquivo $filePartition1 (hash: $md5FilePartition1) para a partição $partition2" >> $log
 
- filePartition2=$partition2/*.plot
- md5FilePartition2=$(md5sum $filePartition2 | cut -d " " -f1)
+ mv $filePartition1 $partition2 && mv  $partition2$file $partition3
+ echo "$(date +%Y%m%d%H%M%S) movendo o arquivo $filePartition1 para a partição $partition2 e movendo da $partition2 para a $partition3" >> $log
 
- while [ $md5FilePartition1 != $md5FilePartition2 ]
-  do
-    echo "Aguarde, ainda copiando arquivo $file1 da partição $partition1 para a partição $partition2" >> $log
-    md5FilePartition2=$(md5sum $filePartition2 | cut -d " " -f1)
-  done
-  
-  echo "$(date +%Y%m%d%H%M%S) Arquivo $file1 (hash: $md5FilePartition1) copiado com sucesso para a partição $partition2!" >> $log
-
-  echo "$(date +%Y%m%d%H%M%S) Removendo o arquivo $filePartition1!" >> $log
-  rm $filePartition1
-
-fi
-
-file2="$(basename $partition2/*.$fileType)"
-filePartition2=$partition2$file2
-
-if [ -f $filePartition2 ]; then
- md5FilePartition2=$(md5sum $filePartition2 | cut -d " " -f1) 
- cp $filePartition2 $partition3
- echo "$(date +%Y%m%d%H%M%S) copiando o arquivo $file2 (hash: $md5FilePartition2) para a partição $partition3" >> $log
-
- filePartition3=$partition3/*.plot
- md5FilePartition3=$(md5sum $filePartition3 | cut -d " " -f1)
-
- while [ $md5FilePartition2 != $md5FilePartition3 ]
-  do
-    echo "Aguarde, ainda copiando arquivo da partição $partition2 para a partição $partition3" >> $log
-    md5FilePartition3=$(md5sum $filePartition3 | cut -d " " -f1)
-  done
-  
-  echo "$(date +%Y%m%d%H%M%S) Arquivo $file2 (hash: $md5FilePartition2) copiado com sucesso para a partição $partition3!" >> $log
-
-  echo "$(date +%Y%m%d%H%M%S) Removendo o arquivo $filePartition2!" >> $log
-  rm $filePartition2
 fi
